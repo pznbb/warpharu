@@ -114,7 +114,7 @@ a new request, and also speed up the process by multithreading.
 Note that this script reads proxies from 'http_proxies.txt' and
 the proxy format is 'proxy':'port'""")
 
-if not Config.USE_PROXY:
+if not Config.USE_PROXY.lower() == "true":
 	print("[i] WARP+ Unlimited GB - Using Normal Mode")
 	normal_mode(Config.WARP_ID)
 else:
