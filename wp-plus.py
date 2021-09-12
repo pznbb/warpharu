@@ -3,8 +3,10 @@
 from pathlib import Path
 from datetime import datetime
 import urllib.request
+import requests
 import json
 import random
+import os
 import string
 import time
 import threading
@@ -54,7 +56,7 @@ def normal_mode(warp_id):
 				print(f"[:)] Added 1 GB to the WARP ID.")
 				print(f"[i] Total: {sucess_req} Sucess | {failed_req} Failed")
 				print("[i] After 18 seconds, a new request will be sent.")
-				time.sleep(17)
+				time.sleep(int(Config.WAIT_SECS_FOR_NORMAL_MODE))
 			else:
 				failed_req += 1
 				print(f"[:(] Error when connecting to server, server response: \n{response.json()}")
@@ -107,11 +109,25 @@ def proxy_mode(warp_id):
 		print("[:(] Invalid number of threads: %s" % threads_str)
 
 print("[i] WARP+ Unlimited GB - ALIAPRO & teppyboy & HuzunluArtemis")
-warp_id = Config.WARP_ID # input("[?] Enter the WARP+ ID: ")
 print("""[!] Proxies helps this script bypass the 18s cooldown before sending 
 a new request, and also speed up the process by multithreading.
 Note that this script reads proxies from 'http_proxies.txt' and
 the proxy format is 'proxy':'port'""")
 
-
-normal_mode(warp_id)
+if not Config.USE_PROXY:
+	print("[i] WARP+ Unlimited GB - Using Normal Mode")
+	normal_mode(Config.WARP_ID)
+else:
+	print("[i] WARP+ Unlimited GB - Using Proxy Mode")
+	print("[i] Using Prox API: " + Config.PROXY_API)
+	print("[i] Thread Count: " + Config.THREAD_COUNT)
+	# check and remove proxy file
+	if os.path.isfile('./http_proxies.txt') or os.path.exists('./http_proxies.txt'):
+		os.remove('./http_proxies.txt')
+	# get proxy file
+	r = requests.get(Config.PROXY_API)
+	resp = r.text.replace('\n','')
+	with open('./http_proxies.txt','w') as fd:
+    		fd.write(resp)
+	#
+	proxy_mode(Config.WARP_ID)

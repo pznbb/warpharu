@@ -9,6 +9,10 @@ Automate Warp+ cloudflare with heroku
     <summary><b>Click Here For Details</b></summary><br>
   
 - `WARP_ID`: Your warp+ id. Like: `asdf51saf15sa1d-as2d6f26a-31asd-aasd`
+- `USE_PROXY`: I dont recommend use proxy mode. `True` or `False`. Default: `False`
+- `PROXY_API`: Custom proxy api. Default: `https://api.proxyscrape.com/v2/?request=getproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all`
+- `THREAD_COUNT`: Custom thread count for proxy mode. Dont give huge numbers. Your account may get banned. Default: `1000`
+- `WAIT_SECS_FOR_NORMAL_MODE`: Waiting seconds between process. Default: `17`
 
 </details>
 

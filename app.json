@@ -13,6 +13,23 @@
         "description": "get this from your phone warp app",
         "value": "",
         "required": true
+      },
+      "USE_PROXY": {
+        "description": "i dont recommend use proxy mode. I recommend leave this empty.",
+        "value": "False",
+        "required": false
+      },
+      "PROXY_API": {
+        "description": "custom proxy api. if you dont know what is this, leave empty. I recommend leave this empty.",
+        "required": false
+      },
+      "THREAD_COUNT": {
+        "description": "thread count for proxy mode. dont give 9999999. maybe your account get ban. I recommend leave this empty.",
+        "required": false
+      },
+      "WAIT_SECS_FOR_NORMAL_MODE": {
+        "description": "Waiting seconds between process. I recommend leave this empty.",
+        "required": false
       }
     },
     "buildpacks":[{"url": "heroku/python"}],
