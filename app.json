@@ -1,0 +1,29 @@
+{
+    "name": "WarpPlusCloudflareHeroku",
+    "description": "go https://github.com/HuzunluArtemis/WarpPlusCloudflareHeroku for details.",
+    "keywords": [
+      "cloudflare"
+    ],
+    "repository": "https://github.com/HuzunluArtemis/WarpPlusCloudflareHeroku",
+    "success_url": "https://github.com/HuzunluArtemis/WarpPlusCloudflareHeroku",
+    "website": "https://github.com/HuzunluArtemis/WarpPlusCloudflareHeroku",
+    "env": 
+    {
+      "WARP_ID": {
+        "description": "get this from your phone warp app",
+        "value": "",
+        "required": true
+      },
+      "USE_PROXY": {
+        "description": "use proxy or not",
+        "required": true
+      },
+      "THREAD_COUNT": {
+        "description": "thread count",
+        "value": "2000",
+        "required": true
+      }
+    },
+    "buildpacks":[{"url": "heroku/python"}],
+    "formation":{"worker": {"quantity": 1, "size": "free"}}
+  }
