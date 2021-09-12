@@ -66,7 +66,7 @@ def normal_mode(warp_id):
 def threaded_proxy_process(thread_name, warp_id, proxies):
 	def tprint(*args, **kwargs):
 		print(f"{thread_name}: ",*args, **kwargs)
-	tprint("Started.")
+	# tprint("Started.")
 	sucess_req = 0
 	failed_req = 0
 	while True:
@@ -74,19 +74,19 @@ def threaded_proxy_process(thread_name, warp_id, proxies):
 			req = gen_request(warp_id)
 			proxy = random.choice(proxies)
 			req.set_proxy(proxy, 'http')
-			tprint(f"Using proxy: {proxy}")
-			tprint(f"URL: {req.full_url}")
+			# tprint(f"Using proxy: {proxy}")
+			# tprint(f"URL: {req.full_url}")
 			response = urllib.request.urlopen(req, context=fake_ssl_context)
 		except Exception as error:
 			failed_req += 1
-			tprint(f"[:(] Error: \n{error}")	
+			# tprint(f"[:(] Error: \n{error}")	
 		else:
 			if response.getcode() == 200:
 				sucess_req += 1
 				tprint("Added 1 GB to the WARP ID.")
 			else:
 				failed_req += 1
-				tprint(f"[:(] Error, server response: \n{response.json()}")
+				# tprint(f"[:(] Error, server response: \n{response.json()}")
 			tprint(f"[i] Total: {sucess_req} Sucess | {failed_req} Failed")
 		time.sleep(0.1) # Wait 0.1 seconds before send a new request.
 
@@ -98,7 +98,7 @@ def proxy_mode(warp_id):
 	if threads_str.isdigit():
 		threads = []
 		for i in range(int(threads_str)):
-			print(f"Creating thread {i}...")
+			# print(f"Creating thread {i}...")
 			tiny_thread = threading.Thread(target=threaded_proxy_process, args=(f"T-{i}",warp_id,proxies))
 			threads.append(tiny_thread)
 			tiny_thread.start()
