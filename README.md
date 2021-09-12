@@ -9,7 +9,6 @@ Automate Warp+ cloudflare with heroku
     <summary><b>Click Here For Details</b></summary><br>
   
 - `WARP_ID`: Your warp+ id. Like: `asdf51saf15sa1d-as2d6f26a-31asd-aasd`
-- `THREAD_COUNT`: Thread count. Example: `642542`
 
 </details>
 

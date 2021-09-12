@@ -13,11 +13,6 @@
         "description": "get this from your phone warp app",
         "value": "",
         "required": true
-      },
-      "THREAD_COUNT": {
-        "description": "thread count",
-        "value": "2000",
-        "required": true
       }
     },
     "buildpacks":[{"url": "heroku/python"}],
