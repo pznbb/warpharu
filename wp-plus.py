@@ -106,18 +106,12 @@ def proxy_mode(warp_id):
 	else:
 		print("[:(] Invalid number of threads: %s" % threads_str)
 
-print("[i] WARP+ Unlimited GB script by ALIAPRO@github, forked by teppyboy@github")
+print("[i] WARP+ Unlimited GB - ALIAPRO & teppyboy & HuzunluArtemis")
 warp_id = Config.WARP_ID # input("[?] Enter the WARP+ ID: ")
 print("""[!] Proxies helps this script bypass the 18s cooldown before sending 
 a new request, and also speed up the process by multithreading.
 Note that this script reads proxies from 'http_proxies.txt' and
 the proxy format is 'proxy':'port'""")
-use_proxy_string = Config.USE_PROXY # input("[?] Do you want to use Proxy? (y/N): ").lower()
-if use_proxy_string:
-	proxies_path = Path("./http_proxies.txt")
-	if proxies_path.exists():
-		proxy_mode(warp_id)
-	else:
-		print("[:(] Proxies file does not exist, exiting.")
-else:
-	normal_mode(warp_id)
+
+
+normal_mode(warp_id)

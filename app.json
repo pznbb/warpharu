@@ -14,10 +14,6 @@
         "value": "",
         "required": true
       },
-      "USE_PROXY": {
-        "description": "use proxy or not",
-        "required": true
-      },
       "THREAD_COUNT": {
         "description": "thread count",
         "value": "2000",
